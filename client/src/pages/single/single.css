@@ -1,0 +1,8 @@
+.single {
+    display: flex;
+    
+}
+
+.singlePost {
+    flex: 9;
+}
