@@ -29,9 +29,9 @@ export default function Sidebar() {
                 <span className="sidebarTitle">Follow Me</span>
                 <div className="sidebarSocial">
                     <i className="sidebarIcon fa-brands fa-facebook-f"></i>
-                    <i class="sidebarIcon fa-brands fa-twitter"></i>
-                    <i class="sidebarIcon fa-brands fa-instagram"></i>
-                    <i class="sidebarIcon fa-brands fa-tiktok"></i>
+                    <i className="sidebarIcon fa-brands fa-twitter"></i>
+                    <i className="sidebarIcon fa-brands fa-instagram"></i>
+                    <i className="sidebarIcon fa-brands fa-tiktok"></i>
                 </div>
             </div>
         </div>

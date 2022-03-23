@@ -1,23 +1,34 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
+const dotenv = require('dotenv');
 const path = require('path');
 const cors = require('cors');
 
-mongoose.connect('mongodb+srv://michaelsnyder14:Family1957@cluster0.cipbc.mongodb.net/blogSoloProject?retryWrites=true&w=majority')
+dotenv.config({path: path.resolve(__dirname, './.env')});
+const app = express();
+const authenticationRouter = require('./routers/authentication');
+const usersRouter = require('./routers/users');
+const postsRouter = require('./routers/posts');
+
+mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log('Connected to the database...'))
     .catch(error => console.log('Error occured: ', error));
 
 app.use(cors());
 app.use(express.json());
 
+// send requests to appropriate router
+app.use('/authentication', authenticationRouter);
+app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
+
+// statically serve everything in the build folder on the route '/build' when using production build
+app.use('/build', express.static(path.join(__dirname, '../build')));
+
+// serve homepage
 app.get('/', (req, res) => {
     return res.status(200).sendFile(path.join(__dirname, '../client/public/index.html'));
 });
-
-app.post('/', (req, res) => {
-    return res.send('haaaay');
-})
 
 // catch bad paths
 app.use((req, res) => {

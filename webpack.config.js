@@ -10,7 +10,8 @@ module.exports = {
     plugins: [new HtmlWebpackPlugin({ template: './client/public/index.html' })],
     mode: process.env.NODE_ENV,
     devServer: {
-        proxy: { '/api': 'http://localhost:3000' }
+        proxy: { '/api': 'http://localhost:3000' },
+        historyApiFallback: true
     },
     module: {
         rules: [
