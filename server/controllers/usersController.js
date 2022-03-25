@@ -7,7 +7,7 @@ usersController.update = async (req, res, next) => {
     // hash password if updating password
     if (req.body.password) {
         const salt = await bcrypt.genSalt(10);
-        const password = await bcrypt.hash(req.body.password, salt);
+        req.body.password = await bcrypt.hash(req.body.password, salt);
     }
     try {
         const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});

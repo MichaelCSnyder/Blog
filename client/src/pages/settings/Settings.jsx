@@ -55,7 +55,8 @@ function Settings({ user, updateUser }) {
     event.preventDefault();
     axios
       .delete(`http://localhost:3000/users/${user._id}`)
-      .then((res) => window.location.replace("/"))
+      .then(res => {localStorage.setItem("user", null)})
+      .then(() => window.location.replace("/"))
       .catch((error) => console.log(error));
   };
   return (
