@@ -14,6 +14,7 @@ const mapDispatchToProps = dispatch => ({
 function Navbar({user, logout}) {
   const handleLogout = () => {
     logout();
+    window.location.replace('/');
   }
 
   return (
@@ -54,16 +55,12 @@ function Navbar({user, logout}) {
       <div className="navRight">
         {user ? (
           <Link to="/settings" className="link">
-            {user.profilePicture ? (
               <img
                 className="navProfilePic"
-                src={user.profilePicture}
+                src={'http://localhost:3000/images/' + user.profilePicture}
                 alt="profile picture"
                 srcSet=""
               />
-            ) : (
-              <i class="fa-solid fa-user-astronaut"></i>
-            )}
           </Link>
         ) : (
           <ul className="topList">
@@ -79,7 +76,12 @@ function Navbar({user, logout}) {
             </li>
           </ul>
         )}
-        <i className="navSearch fa-solid fa-magnifying-glass"></i>
+        {/* <i className="navSearch fa-solid fa-magnifying-glass"></i> */}
+        {user ? (
+          <p className="navbarGreeting">Welcome back, {user.username}!</p>
+        ) : (
+          <p className="navbarGreeting">Hello, guest!</p>
+        )}
       </div>
     </div>
   );

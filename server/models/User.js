@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     },
     profilePicture: {
         type: String,
-        default: ''
+        default: 'flash-dantz-ul37npXbla8-unsplash.jpg'
     }
 }, {timestamps: true});
 

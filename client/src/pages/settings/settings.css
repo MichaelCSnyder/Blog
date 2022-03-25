@@ -49,11 +49,7 @@
   height: 25px;
   margin-left: 10px;
   border-radius: 50%;
-  background-color: rgb(238, 155, 155);
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .settingsForm > label {
@@ -71,6 +67,12 @@
 
 .settingsForm > input:focus {
   outline: none;
+}
+
+.settingsEditSuccess {
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  color: teal;
 }
 
 .settingsSubmit {

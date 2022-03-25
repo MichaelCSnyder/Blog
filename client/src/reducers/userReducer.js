@@ -52,6 +52,21 @@ const userReducer = (state = initialState, action) => {
                 user: null
             }
         }
+        case types.UPDATE_USER: {
+            const username = action.payload.username;
+            const email = action.payload.email;
+            const profilePicture = action.payload.profilePicture;
+
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    username,
+                    email,
+                    profilePicture
+                }
+            }
+        }
         default: {
             return state;
         }

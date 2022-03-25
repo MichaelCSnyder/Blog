@@ -17,7 +17,7 @@ import { connect } from "react-redux";
 const mapStateToProps = state => ({
     user: state.user.user,
 })
-
+// "1648233263509zoo_monkey-Isne1TFoI78-unsplash.jpg"
 function App({user}) {
     useEffect(() => {
         localStorage.setItem("user", JSON.stringify(user));

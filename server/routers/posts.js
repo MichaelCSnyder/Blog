@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const postsController = require('../controllers/postsController');
+const multer = require('multer');
+const path = require('path');
 
 router.post('/', postsController.createPost, (req, res) => {
     return res.status(200).json(res.locals.post);
@@ -16,7 +18,7 @@ router.get('/all', postsController.getPosts, (req, res) => {
 
 router.get('/:id', postsController.getSinglePost, (req, res) => {
     return res.status(200).json(res.locals.post);
-})
+});
 
 router.delete('/:id', postsController.deletePost, (req, res) => {
     return res.status(200).send('Post successfully deleted!');

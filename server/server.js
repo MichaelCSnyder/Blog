@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const path = require('path');
 const cors = require('cors');
+const multer = require('multer');
 
 dotenv.config({path: path.resolve(__dirname, './.env')});
 const app = express();
@@ -25,8 +26,27 @@ app.use('/posts', postsRouter);
 // statically serve everything in the build folder on the route '/build' when using production build
 app.use('/build', express.static(path.join(__dirname, '../build')));
 
+// serve images
+app.use('/images', express.static(path.resolve(__dirname, './images')));
+
+// Handle image uploads:
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.resolve(__dirname, './images'));
+    },
+    filename: (req, file, cb) => {
+        cb(null, req.body.name)
+    }
+});
+
+const upload = multer({storage});
+
+app.post('/upload', upload.single('image'), (req, res) => {
+    return res.status(200).send('Image successfully uploaded!');
+});
+
 // serve homepage
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
     return res.status(200).sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
@@ -43,6 +63,7 @@ app.use((error, req, res, next) => {
     };
     const errorMessage = Object.assign({}, defaultMessage, error);
     console.log(errorMessage.log);
+    console.log(error);
     return res.status(500).json(errorMessage.message);
 })
 

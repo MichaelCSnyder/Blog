@@ -58,7 +58,7 @@ function SinglePost({ post, setPost, user }) {
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-        <img className="singlePostImg" src={post.photo} alt="" />
+        <img className="singlePostImg" src={'http://localhost:3000/images/' + post.photo} alt="" />
         {updateMode ? (
           <input
             type="text"

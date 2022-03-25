@@ -26,3 +26,12 @@ export const loginFailureActionCreator = () => ({
 export const logoutActionCreator = () => ({
     type: types.LOGOUT
 });
+
+export const updateUserActionCreator = (username, email, profilePicture) => ({
+    type: types.UPDATE_USER,
+    payload: {
+        username,
+        email,
+        profilePicture
+    }
+})
