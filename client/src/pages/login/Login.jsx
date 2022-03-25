@@ -46,10 +46,6 @@ function Login({
       .catch((error) => loginFailure());
   };
 
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(user));
-  }, [user]);
-
   return (
     <div className="login">
       <span className="loginTitle">Login</span>

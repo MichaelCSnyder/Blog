@@ -13,6 +13,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
     posts: state.user.posts,
+    user: state.user.user
 });
 
 

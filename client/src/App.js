@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +19,9 @@ const mapStateToProps = state => ({
 })
 
 function App({user}) {
+    useEffect(() => {
+        localStorage.setItem("user", JSON.stringify(user));
+      }, [user]);
     return (
         <Router>
             <div className="App">

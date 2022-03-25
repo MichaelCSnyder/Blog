@@ -41,23 +41,29 @@ function Navbar({user, logout}) {
               Contact
             </Link>
           </li>
+          {user?.username === 'Michael' ? (
           <li className="navListItem">
             <Link to="/write" className="link">
               Create
             </Link>
           </li>
+          ) : null}
           <li className="navListItem" onClick={handleLogout}>{user ? "Logout" : null}</li>
         </ul>
       </div>
       <div className="navRight">
         {user ? (
           <Link to="/settings" className="link">
-            <img
-              className="navProfilePic"
-              src="https://lh3.googleusercontent.com/a-/AOh14GjVnQz0atcL5zx8EeoxZQUKud_mRr5aFyFcpc_04gc=s360-p-rw-no"
-              alt="profile picture"
-              srcSet=""
-            />
+            {user.profilePicture ? (
+              <img
+                className="navProfilePic"
+                src={user.profilePicture}
+                alt="profile picture"
+                srcSet=""
+              />
+            ) : (
+              <i class="fa-solid fa-user-astronaut"></i>
+            )}
           </Link>
         ) : (
           <ul className="topList">

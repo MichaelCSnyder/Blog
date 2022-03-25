@@ -6,6 +6,8 @@
 .singlePostWrapper {
   padding: 20px;
   padding-right: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .singlePostImg {
@@ -20,6 +22,23 @@
   font-family: "Josefin Slab", serif;
   font-size: 30px;
   padding-top: 10px;
+}
+
+.singlePostTitleInput {
+  font-family: "Josefin Slab", serif;
+  font-size: 30px;
+  padding-top: 10px;
+  border: none;
+  border-bottom: 1px solid #999;
+  color: gray;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.singlePostTitleInput:focus {
+  outline: none;
+  border-bottom: 1px solid #666;
 }
 
 .singlePostEdit {
@@ -57,4 +76,53 @@
   margin-left: 20px;
   font-size: 30px;
   font-weight: 600;
+}
+
+.singlePostTextInput {
+  color: #666;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #999;
+  margin-top: 15px;
+}
+
+.singlePostTextInput:focus {
+  outline: none;
+  border-bottom: 1px solid #666;
+}
+
+.singlePostUpdateButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.singlePostCancel {
+  align-self: flex-end;
+  margin-top: 15px;
+  padding: 15px 45px;
+  background-color: lightcoral;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.singlePostCancel:hover {
+  background-color: rgb(204, 109, 109);
+}
+
+.singlePostSubmit {
+  align-self: flex-end;
+  margin-top: 15px;
+  margin-left: 10px;
+  padding: 15px 45px;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.singlePostSubmit:hover {
+  background-color: rgb(0, 88, 88);
 }
