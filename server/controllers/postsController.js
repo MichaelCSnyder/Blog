@@ -57,7 +57,7 @@ postsController.deletePost = async (req, res, next) => {
 
 postsController.getPosts = async (req, res, next) => {
     try {
-        const posts = await Post.find({});
+        const posts = await Post.find({}, null, {sort: {createdAt: -1}});
         res.locals.posts = posts;
         return next();
     } catch (error) {
