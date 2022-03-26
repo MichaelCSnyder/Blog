@@ -28,6 +28,7 @@ export default function Register() {
           type="text"
           placeholder="enter your username..."
           required
+          autoFocus={true}
         />
         <label>Email</label>
         <input
